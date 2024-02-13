@@ -9,22 +9,22 @@ app.use(bodyParser.json());
 app.post('/unauthorizedSales', (req, res) => {
     const { productListings, salesTransactions } = req.body;
 
+       // Checks for appropriate JSON fields
+       if (!productListings || !salesTransactions) {
+        return res.status(400).json({ error: 'Please include productListings and salesTransactions in your input!' });
+    }
+
     // Check the data input format validity
     if (!Array.isArray(productListings) || !Array.isArray(salesTransactions)) {
         return res.status(400).json({ error: 'Invalid input format! Please use Arrays.' });
     }
 
-    // Checks for appropriate JSON fields
-    if (!productListings || !salesTransactions) {
-        return res.status(400).json({ error: 'Please include productListings and salesTransactions in your input!' });
-    }
-
-
+    //storage to push unauthorized sales
     const unauthorizedSalesList = [];
 
     // Loop through sales transactions to identify unauthorized sales
     salesTransactions.forEach(sale => {
-        
+
         const authorizedSellerID = productListings.find(item => item.productID === sale.productID)?.authorizedSellerID;
         
         //if the authorizedSellerID exists and if it's different from a seller id

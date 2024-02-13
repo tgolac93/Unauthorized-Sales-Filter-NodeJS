@@ -8,13 +8,69 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost:3000/unauthorizedSales",
+			"name": "Success",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n  \"productListings\": [{\"productID\": \"123\", \"authorizedSellerID\": \"A1\"}, {\"productID\": \"124\", \"authorizedSellerID\": \"C37\"}],\r\n  \"salesTransactions\": [{\"productID\": \"123\", \"sellerID\": \"B2\"}, {\"productID\": \"124\", \"sellerID\": \"C38\"}]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/unauthorizedSales",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"unauthorizedSales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Wrong format",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"productListngs\": [{\"productID\": \"123\", \"authorizedSellerID\": \"A1\"}, {\"productID\": \"124\", \"authorizedSellerID\": \"C37\"}],\r\n  \"salesTransactions\": [{\"productID\": \"123\", \"sellerID\": \"B2\"}, {\"productID\": \"124\", \"sellerID\": \"C38\"}]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/unauthorizedSales",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"unauthorizedSales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Not array",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"productListings\": 1,\r\n  \"salesTransactions\": [{\"productID\": \"123\", \"sellerID\": \"B2\"}, {\"productID\": \"124\", \"sellerID\": \"C38\"}]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
