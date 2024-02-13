@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "209c4e34-31ff-418b-aaa1-b7f1ff3f0b97",
+		"name": "Unauthorized sales collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6070423",
+		"_collection_link": "https://www.postman.com/tgolac/workspace/zad2/collection/6070423-209c4e34-31ff-418b-aaa1-b7f1ff3f0b97?action=share&source=collection_link&creator=6070423"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/unauthorizedSales",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"productListings\": [{\"productID\": \"123\", \"authorizedSellerID\": \"A1\"}, {\"productID\": \"124\", \"authorizedSellerID\": \"C37\"}],\r\n  \"salesTransactions\": [{\"productID\": \"123\", \"sellerID\": \"B2\"}, {\"productID\": \"124\", \"sellerID\": \"C38\"}]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/unauthorizedSales",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"unauthorizedSales"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
